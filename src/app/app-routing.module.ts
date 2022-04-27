@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { PlayerRegistrationComponent } from "./player-registration/player-registration.component";
 
 const routes: Routes = [
-  { path: '', component: PlayerRegistrationComponent }
+  { path: '', component: PlayerRegistrationComponent },
+  { path: '/', component: PlayerRegistrationComponent }
 ];
 
 @NgModule({
