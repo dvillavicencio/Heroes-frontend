@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <h1>Welcome! <br/> Please register yourself</h1>
+      <form #postForm="ngForm" (ngSubmit)="onCreateUser(postForm.value)">
+        <div class="form-group">
+          <label for="first-name">First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="first-name"
+            required
+            ngModel
+            name="firstName"
+          />
+        </div>
+        <div class="form-group">
+          <label for="last-name">Last Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="last-name"
+            required
+            ngModel
+            name="lastName"
+          />
+        </div>
+        <div class="form-group">
+          <label for="nickname">Nickname</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nickname"
+            required
+            ngModel
+            name="nickname"
+          />
+        </div>
+        <button
+          class="btn btn-primary"
+          type="submit"
+        >
+          Register
+        </button>
+      </form>
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <button class="btn btn-primary"
+      (click)="onRequestHeroes()">
+
+        Fetch Heroes
+      </button>
+      |
+      <button
+        class="btn btn-danger"
+        (click)="clearHeroes()"
+      >
+        Clear Heroes
+      </button>
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
+    <p *ngIf="heroes.length < 1 && !isFetching">No heroes to see here!</p>
+    <ul class="list-group" *ngIf="heroes.length >= 1 && !isFetching">
+      <li class="list-group-item" *ngFor="let hero of heroes">
+        <h4 class="card-title">{{hero.name}}</h4>
+        <p>Attack: {{hero.attack}}</p>
+        <p>Defense: {{hero.defense}}</p>
+        <p>HitPoints: {{hero.hitpoints}}</p>
+        <p>Volley: {{hero.volley}} Fireball: {{hero.fireball}} Berserk: {{hero.berserk}}</p>
+        <button class="btn btn-primary">Select</button>
+      </li>
+    </ul>
+      <span *ngIf="isFetching" class="sr-only">Loading...</span>
+  </div>
+</div>
