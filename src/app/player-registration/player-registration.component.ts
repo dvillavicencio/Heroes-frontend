@@ -42,7 +42,22 @@ export class PlayerRegistrationComponent implements OnInit {
     );
   }
 
+  onRequestAllUsers() {
+    this.isFetching = true;
+    this.playerService.fetchPlayers().subscribe(
+      playersArray => {
+        this.isFetching = false;
+        this.players = playersArray;
+        console.log(this.players);
+      }
+    )
+  }
+
   clearHeroes() {
     this.heroes = [];
+  }
+
+  clearPlayers() {
+    this.players = [];
   }
 }

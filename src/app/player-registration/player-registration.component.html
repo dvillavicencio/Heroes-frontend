@@ -60,21 +60,45 @@
       >
         Clear Heroes
       </button>
+      |
+      <button class="btn btn-primary"
+              (click)="onRequestAllUsers()">
+
+        Fetch All Players
+      </button>
+      |
+      <button class="btn btn-danger"
+        (click)="clearPlayers()">
+        Clear Players
+      </button>
     </div>
   </div>
-
-  <div class="col-xs-12 col-md-6 col-md-offset-3">
-    <p *ngIf="heroes.length < 1 && !isFetching">No heroes to see here!</p>
-    <ul class="list-group" *ngIf="heroes.length >= 1 && !isFetching">
-      <li class="list-group-item" *ngFor="let hero of heroes">
-        <h4 class="card-title">{{hero.name}}</h4>
-        <p>Attack: {{hero.attack}}</p>
-        <p>Defense: {{hero.defense}}</p>
-        <p>HitPoints: {{hero.hitpoints}}</p>
-        <p>Volley: {{hero.volley}} Fireball: {{hero.fireball}} Berserk: {{hero.berserk}}</p>
-        <button class="btn btn-primary">Select</button>
-      </li>
-    </ul>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <p *ngIf="players.length < 1 && !isFetching">No players to see here!</p>
+      <ul class="list-group" *ngIf="players.length >= 1 && !isFetching">
+        <li class="list-group-item" *ngFor="let player of players">
+          <h4 class="card-title">{{player.nickname}}</h4>
+          <p>First Name: {{player.firstName}}</p>
+          <p>Last Name: {{player.lastName}}</p>
+        </li>
+      </ul>
+    </div>
+    <div class="col-">
+      <p *ngIf="heroes.length < 1 && !isFetching">No heroes to see here!</p>
+      <ul class="list-group" *ngIf="heroes.length >= 1 && !isFetching">
+        <li class="list-group-item" *ngFor="let hero of heroes">
+          <h4 class="card-title">{{hero.name}}</h4>
+          <p>Attack: {{hero.attack}}</p>
+          <p>Defense: {{hero.defense}}</p>
+          <p>HitPoints: {{hero.hitpoints}}</p>
+          <p>Volley: {{hero.volley}} Fireball: {{hero.fireball}} Berserk: {{hero.berserk}}</p>
+          <button class="btn btn-primary">Select</button>
+        </li>
+      </ul>
       <span *ngIf="isFetching" class="sr-only">Loading...</span>
+    </div>
   </div>
 </div>

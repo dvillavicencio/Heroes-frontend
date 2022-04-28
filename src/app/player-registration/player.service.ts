@@ -14,15 +14,15 @@ export class playerService{
 
   createAndStorePlayer(firstName: string, lastName: string, nickname: string){
    const postData: Player = { firstName: firstName, lastName: lastName, nickname: nickname};
-    this.http.post<Player>(this.baseUrl + 'user/api/add', postData)
+    this.http.post<Player>(this.baseUrl +  'user/api/add', postData)
       .subscribe();
   }
 
   fetchPlayers(){
-    this.http.get<Player[]>(this.baseUrl + 'user/api/all');
+    return this.http.get<Player[]>(this.baseUrl + 'user/api/all');
   }
 
   fetchHeroes(){
-    return this.http.get<Hero[]>(this.baseUrl + `heroes/api/all`);
+    return this.http.get<Hero[]>(this.baseUrl + 'heroes/api/all');
   }
 }

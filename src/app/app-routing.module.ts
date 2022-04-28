@@ -4,7 +4,6 @@ import { PlayerRegistrationComponent } from "./player-registration/player-regist
 
 const routes: Routes = [
   { path: '', component: PlayerRegistrationComponent },
-  { path: '/', component: PlayerRegistrationComponent }
 ];
 
 @NgModule({
